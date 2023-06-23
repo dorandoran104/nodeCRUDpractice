@@ -1,0 +1,29 @@
+<%- include("../include/header.ejs") %>
+<%- include("../include/navbar.ejs") %>
+
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">번호</th>
+            <th scope="col">제목</th>
+            <th scope="col">내용</th>
+            <th scope="col">작성일</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><%= article[0].id %></th>
+            <td><%= article[0].title %></a></td>
+            <td><%= article[0].body %></td>
+            <td><%= new Date(article[0].regdate).toLocaleString('ko-KR',{ year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }) %></td>
+            
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-outline-secondary" onclick="location.href='/article'">목록</button>
+      <button class="btn btn-outline-secondary" onclick="location.href='/article/modify/<%= article[0].id %>'">수정</button>
+      <button class="btn btn-outline-secondary" id="delete_button" data-id="<%=article[0].id%>">삭제</button>
+</div>
+<script src="../js/article/get.js"></script>
+<%- include("../include/footer.ejs") %>

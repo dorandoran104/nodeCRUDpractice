@@ -1,0 +1,26 @@
+<%- include("../include/header.ejs") %>
+<%- include("../include/navbar.ejs") %>
+
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">번호</th>
+            <th scope="col">제목</th>
+            <th scope="col">작성일</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(let i = 0; i < list.length; i++) { %>
+          <tr>
+            <th scope="row"><%= list[i].id %></th>
+            <td><a href="/article/<%= list[i].id %>"><%= list[i].title %></a></td>
+            <td><%= new Date(list[i].regdate).toLocaleString('ko-KR',{ year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }) %></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+      <button class="btn btn-outline-secondary" onclick="location.href='/article/new'">글 작성</button>
+</div>
+
+<%- include("../include/footer.ejs") %>

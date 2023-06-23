@@ -1,0 +1,18 @@
+<%- include("../include/header.ejs") %>
+<%- include("../include/navbar.ejs") %>
+
+<div class="container">
+  <div class="mb-3">
+    <input type="hidden" id="id" value="<%= article[0].id %>">
+    <label for="title" class="form-label">Title</label>
+    <input type="text" class="form-control" id="title" value="<%= article[0].title %>" >
+  </div>
+  <div class="mb-3">
+    <label for="body" class="form-label">Body</label>
+    <textarea class="form-control" id="body" rows="3"><%= article[0].body %></textarea>
+  </div>
+  <button class="btn btn-outline-secondary" id="modify_button">작성</button>
+</div>
+
+<script src="../../js/article/modify.js"></script>
+<%- include("../include/footer.ejs") %>
